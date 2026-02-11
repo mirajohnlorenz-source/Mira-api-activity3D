@@ -16,7 +16,7 @@ const roomSchema = new mongoose.Schema({
     required: true,
     min:[0, 'Price cannot be negative'],
   },
-   maintenanceLog: [
+    maintenanceLog: [
     {
     date: { type: Date, default: Date.now },
     issue: String, // e.g., "Broken AC"

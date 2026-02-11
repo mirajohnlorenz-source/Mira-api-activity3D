@@ -36,3 +36,15 @@ Returning `404 Not Found` clearly tells the client that the requested resource d
 *(Paste a screenshot of a successful GET request here)*
 
 ![alt text](image.png)
+
+
+**Why did I choose to Embed the Maintenance Log?**
+
+**Answer:**
+Maintenance logs belong only to a specific room and are always accessed together with the room details. Embedding allows faster reads, simpler queries, and avoids unnecessary collections for small, room-specific data.
+
+
+**Why did I choose to Reference the Room and Guest in Booking?**
+
+**Answer**
+Rooms and guests are independent entities that can exist without a booking and may be associated with multiple bookings over time. Referencing avoids data duplication and maintains data consistency across the system.

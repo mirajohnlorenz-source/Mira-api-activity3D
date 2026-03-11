@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+const router = express.Router(); 
 const data = require('../models/roomModel');
 // Import the Controller 
 const {
@@ -16,5 +16,4 @@ router.post('/rooms', createRoom);
 router.get('/rooms/:id', getRoomById);
 router.put('/rooms/:id', updateRoom);
 router.delete('/rooms/:id', deleteRoom);
-
 module.exports = router;

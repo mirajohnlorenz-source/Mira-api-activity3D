@@ -48,3 +48,28 @@ Maintenance logs belong only to a specific room and are always accessed together
 
 **Answer**
 Rooms and guests are independent entities that can exist without a booking and may be associated with multiple bookings over time. Referencing avoids data duplication and maintains data consistency across the system.
+
+
+
+### Securing API
+
+*1.Authentication vs Authorization: What is the difference between Authentication and Authorization in our code?*
+
+**Answer:**
+Authentication is the process of checking if the user is really who they claim to be. In our code, this happens when the system verifies the user’s email and password before giving them a JWT token.
+
+Authorization happens after authentication. It checks what the authenticated user is allowed to do in the system, such as accessing certain routes or performing specific actions based on their role.
+
+*2. Security (bcrypt): Why did we use bcryptjs instead of saving passwords as plain text in MongoDB?*
+
+**Answer:**
+We used bcryptjs to protect user passwords. If passwords were saved as plain text in the database, anyone who gained access to the database could easily read them.
+
+bcryptjs converts the password into a hashed version, which means it becomes unreadable. This makes the stored password much safer even if the database is compromised.
+
+*3. JWT Structure: What does the protect middleware do when it receives a JWT from the client?*
+
+**Answer:**
+The protect middleware checks the JWT sent by the client to make sure it is valid. If the token is correct, it reads the information inside it and identifies the user who made the request. Then it attaches that user’s data to the request so the system knows who is accessing the route.
+
+If the token is missing or invalid, the middleware stops the request and returns a 401 Unauthorized error.

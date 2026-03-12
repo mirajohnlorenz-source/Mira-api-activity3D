@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const connectDB = require('./src/config/db');
 const guestRoutes = require('./src/routes/guestRoutes');
 const bookingRoutes = require('./src/routes/bookingRoutes');
+const authRoutes = require('./src/routes/authRoutes');
 
 const app = express();
 

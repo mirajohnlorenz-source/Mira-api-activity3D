@@ -35,7 +35,7 @@ Returning `404 Not Found` clearly tells the client that the requested resource d
 ### 4. Testing
 *(Paste a screenshot of a successful GET request here)*
 
-![alt text](image.png)
+![SuccesfulGetRequest](image.png)
 
 
 **Why did I choose to Embed the Maintenance Log?**
@@ -73,3 +73,8 @@ bcryptjs converts the password into a hashed version, which means it becomes unr
 The protect middleware checks the JWT sent by the client to make sure it is valid. If the token is correct, it reads the information inside it and identifies the user who made the request. Then it attaches that user’s data to the request so the system knows who is accessing the route.
 
 If the token is missing or invalid, the middleware stops the request and returns a 401 Unauthorized error.
+
+### Testing: 
+![auth/register](image-2.png)
+![auth/login](image-3.png)
+![authorization](image-4.png)

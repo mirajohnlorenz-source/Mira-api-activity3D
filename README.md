@@ -78,3 +78,24 @@ If the token is missing or invalid, the middleware stops the request and returns
 ![auth/register](image-2.png)
 ![auth/login](image-3.png)
 ![authorization](image-4.png)
+
+![Jest coverage table](image-5.png)
+
+*1.Mocking:*
+o Explain in your own words why we mocked Dish.find and jwt.verify. What
+specific problem does mocking solve in Unit Testing?
+
+### We mocked Room.find and jwt.verify to avoid calling the real database and authentication system. This keeps tests fast and predictable. Mocking solves the problem of external dependencies in unit testing by letting us control the outputs and focus only on the logic of the code being tested.
+
+
+*2. Code Coverage:*
+o Look at your Jest Coverage report. Explain what % Branch coverage means. If your Branch coverage is at 50%, what does that tell you about your tests? (Hint: Think about if/else statements).
+
+### Branch coverage shows how many decision paths (like if/else) are tested. If it is 50%, it means only one side of the conditions is tested (either if or else), while the other path is not. This indicates incomplete testing and missing scenarios.
+
+
+*3. Testing Middleware:*
+o In our authMiddleware.test.js, why did we use jest.fn() for the next variable, and
+why did we assert expect(next).not.toHaveBeenCalled() in the failure scenario?
+
+### We used jest.fn() for next to track if it gets called. In the failure case, expect(next).not.toHaveBeenCalled() ensures the middleware blocks the request and does not continue, confirming that unauthorized access is properly handled.

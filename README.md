@@ -99,3 +99,29 @@ o In our authMiddleware.test.js, why did we use jest.fn() for the next variable,
 why did we assert expect(next).not.toHaveBeenCalled() in the failure scenario?
 
 ### We used jest.fn() for next to track if it gets called. In the failure case, expect(next).not.toHaveBeenCalled() ensures the middleware blocks the request and does not continue, confirming that unauthorized access is properly handled.
+
+
+
+![testing triangle integration](image-6.png)
+
+*1. Unit vs. Integration:*
+o Explain the difference between the Unit Test you wrote in Activity 5 and the
+Integration Test you wrote today. What does the Integration Test check that the
+Unit Test does not?
+### Unit tests focus on a single part of the code (like a controller) and usually mock dependencies such as the database or authentication. In contrast, integration tests check how different parts of the system work together, including routes, middleware, and the database.
+### Integration tests verify the actual interaction between components, which unit tests do not cover. This means they can catch issues in routing, data flow, and real database operations that unit tests might miss.
+
+
+*2. In-Memory Databases:*
+o Why did we install mongodb-memory-server instead of just connecting our tests
+to our real MongoDB Atlas URI? Mention at least two reasons.
+### We used mongodb-memory-server instead of a real MongoDB Atlas URI for two main reasons:
+
+### 1. Isolation and safety – It prevents tests from modifying or deleting real data in the production or cloud database.
+### 2. Speed and reliability – The in-memory database runs locally, making tests faster and not dependent on internet connection or external services.
+
+
+*3. Supertest:*
+o What is the role of supertest in our test file? Why didn't we use Postman for this?
+### supertest is used to simulate HTTP requests (like GET, POST) directly in our test code and check the responses automatically. It allows us to test our API endpoints programmatically.
+### We didn’t use Postman because Postman is a manual testing tool, while supertest enables automated testing, which is faster, repeatable, and can be run every time we execute our test suite.

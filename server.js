@@ -29,7 +29,11 @@ app.use('/guests', guestRoutes);
 app.use('/bookings', bookingRoutes);
 
 // 5. Start server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-  console.log(`Base URI: http://localhost:${PORT}${BASE_URI}`);
+// ONLY start the server if we are NOT running tests
+if (process.env.NODE_ENV !== 'test') {
+app.listen(process.env.PORT || 3000, () => {
+console.log(`Server running on port ${process.env.PORT}`);
 });
+}
+
+module.exports = app; // Export the app for testing
